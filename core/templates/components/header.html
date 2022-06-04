@@ -11,10 +11,10 @@
         <ul>
           <li><a href="{% url 'Blog-Home' %}">Home</a></li>
          
-          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="{% url 'Blog-Categories' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               {% for cat in category %}
-              <li><a href="{% url 'Blog-Category' cat.id %}">{{cat.title}}</a></li>
+              <li><a href="{% url 'Blog-Category' cat.uuid  %}">{{cat.title}}</a></li>
               {% endfor %}
             </ul>
           </li>

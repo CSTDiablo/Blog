@@ -15,7 +15,8 @@ class Category(BaseModel):
     
     title = models.CharField(max_length=50, choices= CHOICES)    
     description = models.TextField()
-    
+    image = models.ImageField(upload_to = 'media/',blank = True)
+ 
     class Meta:
         verbose_name_plural = 'Category'
 
@@ -61,5 +62,14 @@ class ContactUs(BaseModel):
     message = models.TextField(max_length=1000)
     class Meta:
         verbose_name_plural = 'ContactUs'
+
+class Trending(BaseModel):
+    category = models.ForeignKey(Category, on_delete= models.CASCADE)
+    datetime = models.DateField(auto_now_add= True)
+    title = models.CharField(max_length= 100)
+    class Meta:
+        verbose_name_plural = 'Trending'
+
+
 
         

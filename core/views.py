@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import (Category,Slider,Comment,ContactUs, Blog,)
+from .models import (Category,Slider,Comment,ContactUs, Blog,Trending,)
 
 # Create your views here.
 
@@ -14,7 +14,7 @@ def home(request):
         'slider': slider,
         'comment': comment,
         'contactus': contactus,
-        'blog': blog,
+        'blogs': blog,
         'trendings': Blog.objects.filter(is_trending = True)
     }
 
@@ -23,14 +23,22 @@ def home(request):
 def about(request):
     blog = Blog.objects.all()
     context = {
-        'blog':blog
+        'about_blog':blog
     }
     return render(request, 'core/about.html', context )
 
 def category(request,id):
-    cat_id=Category.objects.get(uuid=id)
-    blogs=Blog.objects.filter(category_id= cat_id)
+    categories=Category.objects.get(uuid=id)
+    blogs=Blog.objects.filter(category_id= categories)
 
     return render(request, 'core/category.html',{
-       "blogs":blogs
+       "category_blogs":blogs,
+       'categorys': categories
     })
+
+def categories(request):
+    trending = Trending.objects.all()
+    context = {
+        'trendings':trending
+    }
+    return render(request, 'core/category.html',context)
