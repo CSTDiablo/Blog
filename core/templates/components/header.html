@@ -11,7 +11,7 @@
         <ul>
           <li><a href="{% url 'Blog-Home' %}">Home</a></li>
          
-          <li class="dropdown"><a href="{% url 'Blog-Categories' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               {% for cat in category %}
               <li><a href="{% url 'Blog-Category' cat.uuid  %}">{{cat.title}}</a></li>
@@ -19,12 +19,12 @@
             </ul>
           </li>
           <li><a href="{% url 'Blog-About' %}">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'Blog-Contact' %}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="https://www.facebook.com/john.bista2k58/" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
 
@@ -33,9 +33,9 @@
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.html" class="search-form">
+          <form action="{% url 'Blog-Home' %}" method='get' class="search-form">
             <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
+            <input type="text" value='search' placeholder="Search" class="form-control">
             <button class="btn js-search-close"><span class="bi-x"></span></button>
           </form>
         </div><!-- End Search Form -->

@@ -15,7 +15,6 @@ class Category(BaseModel):
     
     title = models.CharField(max_length=50, choices= CHOICES)    
     description = models.TextField()
-    image = models.ImageField(upload_to = 'media/',blank = True)
  
     class Meta:
         verbose_name_plural = 'Category'

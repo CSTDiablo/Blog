@@ -10,15 +10,15 @@
 
         <div class="col-md-9" data-aos="fade-up">
           <h3 class="category-title">{{categorys.title}}</h3>
-          {% for blog in blogs %}
+          {% for blog in category_blogs %}
           <div class="d-md-flex post-entry-2 half">
             <a href="single-post.html" class="me-4 thumbnail">
-              <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+              <img src="{{blog.image.url}}" alt="" class="img-fluid">
             </a>
             <div>
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{blog.created_at}}</span></div>
               <h3><a href="single-post.html">{{blog.title}}</a></h3>
-                <p>{{blog.description}}</p>
+                <p>{{blog.description|safe}}</p>
               <div class="d-flex align-items-center author">
                 <div class="photo"><img src="{{blog.image.url}}" alt="" class="img-fluid"></div>
                 <div class="name">
