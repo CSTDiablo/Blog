@@ -124,7 +124,7 @@
         <div class="row">
 
 
-        {% for  b  in blogs %}
+        {% comment %} {% for  b  in blogs %}
           <div class="col-md-9">
             {% if  forloop.first  %}
             <div class="d-lg-flex post-entry-2">
@@ -190,15 +190,18 @@
             </div>
           </div>
 
-          {% endfor %} 
+        {% endfor %}  {% endcomment %}
           {% for b in blogs %}
+          {% if blog.category_id == cat.id %}
           <div class="col-md-3">
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">{{b.category}}</span> <span class="mx-1">&bullet;</span> <span>{{b.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'Blog-SinglePost' b.uuid %}">{{b.title}}</a></h2>
               <span class="author mb-3 d-block">{{request.user}}</span>
           </div> 
+          {% endif %}
           {% endfor %}
+         
 
             {% comment %} <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
