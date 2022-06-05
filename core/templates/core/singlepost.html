@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="main">
+
+    <section class="single-post-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
+
+            <!-- ======= Single Post Content ======= -->
+            <div class="single-post">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> 
+                <span>{{blog.created_at}}</span></div>
+              
+              <h1 class="mb-5">{{blog.title}}</h1>
+                <p>{{blog.description}}</p>
+                <figure class="my-4"><center>
+                <img src="{{blog.image.url}}" alt="" class="img-fluid">
+                </center></figure>
+                <p>{{blog.description}}</p>
+                <!-- End Single Post Content -->
+
+           
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  </main><
+{% endblock content %}
